@@ -55,16 +55,8 @@ add action=dst-nat chain=dstnat comment="Rest Channel Host" dst-port=55000 \
     55000
 add action=dst-nat chain=dstnat comment="IP Remote Programming" dst-port=\
     50000-50100 in-interface=ether1 protocol=tcp to-addresses=192.168.1.0/24
-/ipv6 firewall address-list
-add address=::/128 comment="defconf: unspecified address" list=bad_ipv6
-add address=::1/128 comment="defconf: lo" list=bad_ipv6
-add address=fec0::/10 comment="defconf: site-local" list=bad_ipv6
-add address=::ffff:0.0.0.0/96 comment="defconf: ipv4-mapped" list=bad_ipv6
-add address=::/96 comment="defconf: ipv4 compat" list=bad_ipv6
-add address=100::/64 comment="defconf: discard only " list=bad_ipv6
-add address=2001:db8::/32 comment="defconf: documentation" list=bad_ipv6
-add address=2001:10::/28 comment="defconf: ORCHID" list=bad_ipv6
-add address=3ffe::/16 comment="defconf: 6bone" list=bad_ipv6
+/ipv6 settings
+    disable-ipv6
 /system note
 set show-at-login=no
 /tool mac-server

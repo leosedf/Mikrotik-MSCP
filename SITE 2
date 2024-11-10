@@ -53,6 +53,8 @@ add action=dst-nat chain=dstnat comment="Rest Channel Host" dst-port=55000 \
     55000
 add action=dst-nat chain=dstnat comment="IP Remote Programming" dst-port=\
     50000-50100 in-interface=ether1 protocol=tcp to-addresses=192.168.1.0/24
+/ipv6 settings
+    disable-ipv6
 /system note
 set show-at-login=no
 /tool mac-server

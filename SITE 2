@@ -32,10 +32,6 @@ add action=drop chain=input connection-state=invalid
 add action=accept chain=input protocol=icmp
 add action=accept chain=input dst-address=127.0.0.1
 add action=drop chain=input in-interface-list=!LAN
-add action=accept chain=forward ipsec-policy=in,ipsec
-add action=accept chain=forward ipsec-policy=out,ipsec
-add action=fasttrack-connection chain=forward connection-state=\
-    established,related hw-offload=yes
 add action=accept chain=forward connection-state=\
     established,related,untracked
 add action=drop chain=forward connection-state=invalid

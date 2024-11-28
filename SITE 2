@@ -42,8 +42,6 @@ add action=drop chain=forward connection-state=invalid
 add action=drop chain=forward connection-nat-state=!dstnat connection-state=\
     new in-interface-list=WAN
 /ip firewall nat
-add action=masquerade chain=srcnat ipsec-policy=out,none out-interface-list=\
-    WAN
 add action=dst-nat chain=dstnat comment="Peer Repeater 3" dst-port=50003 \
     in-interface=ether1 protocol=udp to-addresses=192.168.1.2 to-ports=50003
 add action=dst-nat chain=dstnat comment="Peer Repeater 4" dst-port=50004 \
